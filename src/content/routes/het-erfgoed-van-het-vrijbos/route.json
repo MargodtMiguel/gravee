@@ -1,0 +1,30 @@
+{
+  "slug": "het-erfgoed-van-het-vrijbos",
+  "title": "Het Erfgoed van het Vrijbos",
+  "description": "*De Westhoek op zijn best: van de dichte bossen in Houthulst naar de weidse polders van de Blankaart. Deze route is een eerbetoon aan de rijke geschiedenis en de verborgen grindwegen van mijn eigen achtertuin.",
+  "heroImage": "/routes/het-erfgoed-van-het-vrijbos/hero.webp",
+  "location": "Houthulst, West-Vlaanderen",
+  "stats": {
+    "distance": 64.5,
+    "elevation": 207,
+    "gravelPercent": 44,
+    "difficulty": "Gemiddeld"
+  },
+  "tips": [
+    {
+      "type": "parking",
+      "title": "Start punt parking",
+      "content": "Gratis parking aan het Vrijetijdscentrum van Houthulst. Er is plaats voor een 50-tal auto's en het is er altijd open."
+    },
+    {
+      "type": "food",
+      "title": "Koffie, lunch of een verfrissing",
+      "content": "Stop aan de Poesele fietshoeve voor een verfrissing. Ze serveren er verse soep en andere lekkernijen."
+    },
+    {
+      "type": "technical",
+      "title": "Bandenadvies",
+      "content": "40-45mm banden aanbevolen. De stukken rond het Vrijbos en Terrest zijn wat ruiger. Overweeg om de bandenspanning te verlagen voor meer comfort."
+    }
+  ]
+}
