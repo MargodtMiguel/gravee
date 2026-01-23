@@ -1,4 +1,12 @@
-import { Route, Mountain, CircleDot, Gauge } from "lucide-react";
+import {
+  Route,
+  Mountain,
+  CircleDot,
+  Gauge,
+  RulerDimensionLine,
+  PanelLeftRightDashed,
+  Dumbbell,
+} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import type { RouteStats } from "@/lib/routes";
 
@@ -9,7 +17,7 @@ interface RouteStatsBarProps {
 export function RouteStatsBar({ stats }: RouteStatsBarProps) {
   const items = [
     {
-      icon: Route,
+      icon: RulerDimensionLine,
       label: "Afstand",
       value: `${stats.distance}km`,
     },
@@ -19,12 +27,12 @@ export function RouteStatsBar({ stats }: RouteStatsBarProps) {
       value: `${stats.elevation.toLocaleString()}m`,
     },
     {
-      icon: CircleDot,
+      icon: PanelLeftRightDashed,
       label: "Onverhard",
       value: `${stats.gravelPercent}%`,
     },
     {
-      icon: Gauge,
+      icon: Dumbbell,
       label: "Moeilijkheid",
       value: stats.difficulty,
       colorClass: "text-primary",
