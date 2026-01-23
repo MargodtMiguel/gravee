@@ -24,12 +24,12 @@ export function RouteCTA({ slug }: RouteCTAProps) {
   return (
     <section className="bg-[#EDEAE4]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-20 flex gap-12 flex-col md:flex-row items-center justify-between">
-        <div className="flex flex-col gap-2">
+        <div className="flex-1 w-full flex flex-col gap-2">
           <h3 className="text-primary font-bold text-xl tracking-tight">
             Ready to Ride?
           </h3>
           <p className="pb-4">
-            Download het GPX bestand gratis en sync het met fietscomputer.
+            Download het GPX bestand gratis en sync het met je fietscomputer.
           </p>
 
           <Button className="rounded-full w-fit" onClick={downloadGpx}>
@@ -40,12 +40,12 @@ export function RouteCTA({ slug }: RouteCTAProps) {
 
         <div className="h-px md:h-32 w-full md:w-px bg-primary/20"></div>
 
-        <Card className="shadow-none max-fit">
+        <Card className="shadow-none flex-1 w-full">
           <CardContent>
             <div className="flex gap-2 items-center">
               <Avatar className="size-10">
                 <AvatarImage
-                  src="https://github.com/shadcn.png"
+                  src="https://cdn.buymeacoffee.com/uploads/profile_pictures/2026/01/zUYvHgmwB8zICMO2.jpeg@300w_0e.webp"
                   alt="@shadcn"
                 />
                 <AvatarFallback>MD</AvatarFallback>
@@ -53,7 +53,7 @@ export function RouteCTA({ slug }: RouteCTAProps) {
 
               <div className="flex flex-col">
                 <div className="font-light text-xs">ROUTE DOOR</div>
-                <div className="font-bold text-primary">Michael De Vos</div>
+                <div className="font-bold text-primary">Miguel</div>
               </div>
             </div>
             <p className="pt-2 pb-4 text-muted-foreground text-sm">
