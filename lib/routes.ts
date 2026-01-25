@@ -13,15 +13,17 @@ export interface RouteStats {
   distance: number;
   elevation: number;
   gravelPercent: number;
-  difficulty: string;
+  difficulty: number;
 }
 
 export interface RouteData {
   slug: string;
   title: string;
+  date: string;
   description: string;
   heroImage: string;
   location: string;
+  province: string;
   stats: RouteStats;
   tips: RouteTip[];
 }

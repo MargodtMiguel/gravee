@@ -5,3 +5,4 @@ export { RouteContent } from "./RouteContent";
 export { RouteTips } from "./RouteTips";
 export { RouteCTA } from "./RouteCTA";
 export { RouteCard } from "./RouteCard";
+export { RouteBrowser } from "./RouteBrowser";

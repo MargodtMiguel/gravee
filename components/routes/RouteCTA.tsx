@@ -29,7 +29,8 @@ export function RouteCTA({ slug }: RouteCTAProps) {
             Ready to Ride?
           </h3>
           <p className="pb-4">
-            Download het GPX bestand gratis en sync het met je fietscomputer.
+            Download hier de actuele GPX voor je fietscomputer. Ik update de
+            routes regelmatig voor de beste ervaring.
           </p>
 
           <Button className="rounded-full w-fit" onClick={downloadGpx}>
@@ -57,8 +58,8 @@ export function RouteCTA({ slug }: RouteCTAProps) {
               </div>
             </div>
             <p className="pt-2 pb-4 text-muted-foreground text-sm">
-              "Ik spendeer uren om de mooiste stroken te vinden en te delen met
-              jullie. Steun m'n werk met een koffie."
+              "Uren scouten voor de perfecte rit. Smaakte de route naar meer?
+              Trakteer de scout op een koffie."
             </p>
 
             <Link href={buyMeCoffeeUrl}>

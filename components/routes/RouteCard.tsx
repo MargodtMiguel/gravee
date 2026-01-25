@@ -9,6 +9,7 @@ import {
   RulerDimensionLine,
   PanelLeftRightDashed,
 } from "lucide-react";
+import { ZapRating } from "@/components/ui/ZapRating";
 
 interface RouteCardProps {
   route: RouteData;
@@ -16,8 +17,8 @@ interface RouteCardProps {
 
 export function RouteCard({ route }: RouteCardProps) {
   return (
-    <Link href={`/routes/${route.slug}`} className="block h-full group">
-      <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg border-border/50 hover:border-border py-0">
+    <Link href={`/${route.slug}`} className="block h-full group">
+      <Card className="h-full bg-white overflow-hidden transition-all duration-300 hover:shadow-lg border-border/50 hover:border-border py-0">
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             src={route.heroImage}
@@ -37,8 +38,8 @@ export function RouteCard({ route }: RouteCardProps) {
             <span>{route.location}</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 py-4">
-            <div className="flex  gap-1">
+          <div className="grid grid-cols-2 gap-4 py-4">
+            <div className="flex gap-1">
               <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium flex items-center gap-1.5">
                 <RulerDimensionLine className="size-4 text-primary" />
               </span>
@@ -47,7 +48,7 @@ export function RouteCard({ route }: RouteCardProps) {
               </span>
             </div>
 
-            <div className="flex  gap-1">
+            <div className="flex gap-1">
               <span className="text-xs text-muted-foreground uppercase tracking-wider font-medium flex items-center gap-1.5">
                 <Mountain className="size-4 text-primary" />
               </span>
@@ -63,6 +64,10 @@ export function RouteCard({ route }: RouteCardProps) {
               <span className="font-semibold text-sm">
                 {route.stats.gravelPercent}%
               </span>
+            </div>
+
+            <div className="flex gap-1 items-center">
+              <ZapRating rating={route.stats.difficulty} size="sm" />
             </div>
           </div>
 

@@ -8,6 +8,7 @@ import {
   Dumbbell,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { ZapRating } from "@/components/ui/ZapRating";
 import type { RouteStats } from "@/lib/routes";
 
 interface RouteStatsBarProps {
@@ -34,7 +35,7 @@ export function RouteStatsBar({ stats }: RouteStatsBarProps) {
     {
       icon: Dumbbell,
       label: "Moeilijkheid",
-      value: stats.difficulty,
+      value: "",
       colorClass: "text-primary",
     },
   ];
@@ -53,9 +54,13 @@ export function RouteStatsBar({ stats }: RouteStatsBarProps) {
               >
                 <item.icon className="size-5 text-primary" />
 
-                <span className={`text-lg font-semibold text-primary`}>
-                  {item.value}
-                </span>
+                {item.label === "Moeilijkheid" ? (
+                  <ZapRating rating={stats.difficulty} size="md" />
+                ) : (
+                  <span className={`text-lg font-semibold text-primary`}>
+                    {item.value}
+                  </span>
+                )}
                 <span className="text-xs font-medium uppercase tracking-wider text-primary">
                   {item.label}
                 </span>

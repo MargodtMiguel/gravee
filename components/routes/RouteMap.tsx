@@ -107,7 +107,7 @@ export function RouteMap({ coordinates, accessToken }: RouteMapProps) {
         },
         paint: {
           "line-color": "#16CF16",
-          "line-width": 6,
+          "line-width": 5,
         },
       });
 
@@ -166,7 +166,7 @@ export function RouteMap({ coordinates, accessToken }: RouteMapProps) {
   }, [activeIndex, mapLoaded, chartData]);
 
   return (
-    <section className="p-3 bg-white rounded-xl flex flex-col gap-6">
+    <section className="p-2 bg-white rounded-xl flex flex-col gap-6">
       <div className="overflow-hidden rounded-xl">
         <div
           ref={mapContainerRef}

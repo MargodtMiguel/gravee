@@ -1,14 +1,16 @@
 {
   "slug": "het-erfgoed-van-het-vrijbos",
   "title": "Het Erfgoed van het Vrijbos",
+  "date": "2026-01-24",
   "description": "De Westhoek op zijn best: van de dichte bossen in Houthulst naar de weidse polders van de Blankaart. Deze route is een eerbetoon aan de rijke geschiedenis en de verborgen grindwegen van mijn eigen achtertuin.",
-  "heroImage": "/routes/het-erfgoed-van-het-vrijbos/hero.webp",
+  "heroImage": "/routes/het-erfgoed-van-het-vrijbos/vrijbos.jpg",
   "location": "Houthulst, West-Vlaanderen",
+  "province": "West-Vlaanderen",
   "stats": {
-    "distance": 64.5,
-    "elevation": 207,
+    "distance": 62.6,
+    "elevation": 196,
     "gravelPercent": 44,
-    "difficulty": "Gemiddeld"
+    "difficulty": 3
   },
   "tips": [
     {
