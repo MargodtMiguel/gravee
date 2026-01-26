@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { parseGpx, calculateStats } from "./gpx";
 
 const ROUTES_DIRECTORY = path.join(process.cwd(), "src/content/routes");
 
@@ -80,8 +81,20 @@ export function getRouteBySlug(slug: string): RouteWithContent | null {
       ? fs.readFileSync(trackGpxPath, "utf-8")
       : "";
 
+    let stats = routeJson.stats;
+    if (gpxContent) {
+      const coordinates = parseGpx(gpxContent);
+      const calculatedStats = calculateStats(coordinates);
+      stats = {
+        ...stats,
+        distance: calculatedStats.distance,
+        elevation: calculatedStats.elevation,
+      };
+    }
+
     return {
       ...routeJson,
+      stats,
       mdxSource,
       gpxContent,
     };
@@ -99,9 +112,27 @@ export function getAllRoutes(): RouteData[] {
   
   return slugs
     .map((slug) => {
-      const routeJsonPath = path.join(ROUTES_DIRECTORY, slug, "route.json");
+      const routeDir = path.join(ROUTES_DIRECTORY, slug);
+      const routeJsonPath = path.join(routeDir, "route.json");
+      const trackGpxPath = path.join(routeDir, "track.gpx");
+
       try {
-        return JSON.parse(fs.readFileSync(routeJsonPath, "utf-8")) as RouteData;
+        const routeJson = JSON.parse(fs.readFileSync(routeJsonPath, "utf-8")) as RouteData;
+        
+        // Calculate stats from GPX if available
+        if (fs.existsSync(trackGpxPath)) {
+          const gpxContent = fs.readFileSync(trackGpxPath, "utf-8");
+          const coordinates = parseGpx(gpxContent);
+          const calculatedStats = calculateStats(coordinates);
+          
+          routeJson.stats = {
+            ...routeJson.stats,
+            distance: calculatedStats.distance,
+            elevation: calculatedStats.elevation,
+          };
+        }
+
+        return routeJson;
       } catch {
         return null;
       }

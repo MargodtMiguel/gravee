@@ -55,7 +55,9 @@ export function RouteStatsBar({ stats }: RouteStatsBarProps) {
                 <item.icon className="size-5 text-primary" />
 
                 {item.label === "Moeilijkheid" ? (
-                  <ZapRating rating={stats.difficulty} size="md" />
+                  <div className="mt-3">
+                    <ZapRating rating={stats.difficulty} size="md" />
+                  </div>
                 ) : (
                   <span className={`text-lg font-semibold text-primary`}>
                     {item.value}

@@ -1,0 +1,32 @@
+{
+  "slug": "bachten-de-kupe",
+  "title": "Bachten de Kupe",
+  "date": "2026-01-20",
+  "description": "Een tocht door het land waar de tijd lijkt stil te staan. Van de iconische IJzertoren in Diksmuide trekken we diep de polders in, langs verborgen bossen, volkscafés en de littekens van de Grote Oorlog. Bereid je voor op weidse zichten en grindpaden die de horizon raken.",
+  "heroImage": "/routes/bachten-de-kupe/hero.jpeg",
+  "location": "Diksmuide, West-Vlaanderen",
+  "province": "West-Vlaanderen",
+  "stats": {
+    "distance": 113.3,
+    "elevation": 81,
+    "gravelPercent": 48,
+    "difficulty": 2
+  },
+  "tips": [
+    {
+      "type": "parking",
+      "title": "Start punt parking",
+      "content": "Gratis parking aan de IJzertoren in Diksmuide. Er is plaats voor een 60-tal auto's en het is er altijd open."
+    },
+    {
+      "type": "food",
+      "title": "Koffie, lunch of een verfrissing",
+      "content": "Stop aan het Hof van Commerce in Stavele voor een authentieke ervaring."
+    },
+    {
+      "type": "technical",
+      "title": "Bandenadvies",
+      "content": "Een all-round gravelband (38-42mm) werkt hier het best. De paden zijn over het algemeen goed berijdbaar met enkel hier en daar een modderig stukje."
+    }
+  ]
+}

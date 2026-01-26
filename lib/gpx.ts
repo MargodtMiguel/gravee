@@ -68,3 +68,44 @@ export function getBounds(coordinates: GpxCoordinate[]): [[number, number], [num
 
   return [[minLng, minLat], [maxLng, maxLat]];
 }
+
+/**
+ * Calculate distance (in km) and elevation gain (in m) from GPX coordinates
+ */
+export function calculateStats(coordinates: GpxCoordinate[]): { distance: number; elevation: number } {
+  let distance = 0;
+  let elevation = 0;
+
+  for (let i = 0; i < coordinates.length - 1; i++) {
+    const p1 = coordinates[i];
+    const p2 = coordinates[i + 1];
+
+    // Calculate distance using Haversine formula
+    const R = 6371; // Earth's radius in km
+    const dLat = ((p2.lat - p1.lat) * Math.PI) / 180;
+    const dLon = ((p2.lng - p1.lng) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((p1.lat * Math.PI) / 180) *
+        Math.cos((p2.lat * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    distance += R * c;
+
+    // Calculate elevation gain
+    if (p1.ele !== undefined && p2.ele !== undefined) {
+      const eleDiff = p2.ele - p1.ele;
+      if (eleDiff > 0) {
+        elevation += eleDiff;
+      }
+    }
+  }
+
+  // Round distance to 1 decimal place
+  distance = Math.round(distance * 10) / 10;
+  // Round elevation to integer
+  elevation = Math.round(elevation);
+
+  return { distance, elevation };
+}
