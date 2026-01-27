@@ -8,7 +8,9 @@ import {
   RouteContent,
   RouteTips,
   RouteCTA,
+  RouteWeather,
 } from "@/components/routes";
+import { getRouteWeather } from "@/lib/weather";
 
 export async function generateStaticParams() {
   const slugs = getAllRouteSlugs();
@@ -62,6 +64,8 @@ export default async function RoutePage({
   }
 
   const coordinates = parseGpx(route.gpxContent);
+  const startPoint = coordinates[0];
+  const weather = await getRouteWeather(startPoint.lat, startPoint.lng);
 
   let MdxContent: React.ComponentType | null = null;
   try {
@@ -87,8 +91,9 @@ export default async function RoutePage({
             <RouteTips tips={route.tips} />
           </div>
 
-          <div className="md:col-span-5 order-1 md:order-2">
+          <div className="md:col-span-5 order-1 md:order-2 flex flex-col gap-4">
             <RouteMap coordinates={coordinates} accessToken={MAPBOX_TOKEN} />
+            {weather && <RouteWeather weather={weather} />}
           </div>
         </div>
       </div>
