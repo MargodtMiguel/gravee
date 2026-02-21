@@ -32,7 +32,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${route.title} | Gravee`,
+    title: route.title,
     description: route.description,
     openGraph: {
       title: route.title,

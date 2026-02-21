@@ -2,9 +2,20 @@ import { getAllRoutes } from "@/lib/routes";
 import { RouteBrowser } from "@/components/routes";
 
 export const metadata = {
-  title: "Routes | Gravee",
+  title: "Routes",
   description:
     "Vind de perfecte gravelroute voor jouw niveau en stijl, gecureerd door ons",
+  openGraph: {
+    title: "Routes | Gravee",
+    description:
+      "Vind de perfecte gravelroute voor jouw niveau en stijl, gecureerd door ons",
+  },
+  twitter: {
+    card: "summary" as const,
+    title: "Routes | Gravee",
+    description:
+      "Vind de perfecte gravelroute voor jouw niveau en stijl, gecureerd door ons",
+  },
 };
 
 export default function RoutesPage() {
