@@ -33,7 +33,12 @@ export function RouteCTA({ slug }: RouteCTAProps) {
             routes regelmatig voor de beste ervaring.
           </p>
 
-          <Button className="rounded-full w-fit" onClick={downloadGpx}>
+          <Button
+            className="rounded-full w-fit"
+            onClick={downloadGpx}
+            data-umami-event="Download GPX"
+            data-umami-event-route={slug}
+          >
             <Download className="size-4" />
             Download GPX-bestand (Gratis)
           </Button>

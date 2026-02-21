@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/app/nav";
 import { Footer } from "@/components/app/footer";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,12 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+
+      <Script
+        defer
+        src="https://analytics.app.twoave.be/script.js"
+        data-website-id="ac3dd175-9ee1-48c1-b0d6-5c2c13dca8b4"
+      ></Script>
     </html>
   );
 }
