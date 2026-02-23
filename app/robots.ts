@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://gravee.cc/sitemap.xml",
+    sitemap: "https://www.gravee.cc/sitemap.xml",
   };
 }
