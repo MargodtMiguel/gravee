@@ -31,18 +31,30 @@ export async function generateMetadata({
     };
   }
 
+  const city = route.location.split(",")[0].trim();
+  const title = `${route.title} - Gravel in ${city}`;
+
   return {
-    title: route.title,
+    title,
     description: route.description,
+    keywords: [
+      "Gravel",
+      "Gravelroute",
+      "Gravelbiken",
+      city,
+      route.province,
+      "Gravee",
+      route.title,
+    ],
     openGraph: {
-      title: route.title,
+      title,
       description: route.description,
       images: [route.heroImage],
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: route.title,
+      title,
       description: route.description,
       images: [route.heroImage],
     },
@@ -75,8 +87,34 @@ export default async function RoutePage({
     MdxContent = null;
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: route.title,
+    description: route.description,
+    image: `https://gravee.cc${route.heroImage}`,
+    author: {
+      "@type": "Organization",
+      name: "Gravee",
+      url: "https://gravee.cc",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Gravee",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://gravee.cc/icon.png",
+      },
+    },
+    datePublished: route.date,
+  };
+
   return (
     <main className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RouteHero route={route} />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-20 flex flex-col gap-10">
