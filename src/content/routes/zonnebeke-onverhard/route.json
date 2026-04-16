@@ -1,0 +1,32 @@
+{
+  "slug": "zonnebeke-onverhard",
+  "title": "Zonnebeke Onverhard",
+  "date": "2026-04-16",
+  "description": "Ontdek de ultieme gravelroute in Zonnebeke. Fiets door het Polygoonbos, de Palingbeek en langs het kanaal Ieper-Komen. Een gevarieerde tocht door het onverharde hart van de Westhoek, startend vanuit het prachtige Kasteelpark.",
+  "heroImage": "/routes/zonnebeke-onverhard/polygoon-bos-2.jpg",
+  "location": "Zonnebeke, West-Vlaanderen",
+  "province": "West-Vlaanderen",
+  "stats": {
+    "distance": 69,
+    "elevation": 397,
+    "gravelPercent": 43,
+    "difficulty": 2
+  },
+  "tips": [
+    {
+      "type": "parking",
+      "title": "Startpunt & Parking",
+      "content": "Twee ruime, gratis parkings aan het Kasteelpark van Zonnebeke (Berten Pilstraat). Ideaal als uitvalsbasis met sanitaire voorzieningen in de buurt."
+    },
+    {
+      "type": "food",
+      "title": "Bevoorrading",
+      "content": "Pauzeer bij de Palingbeek in de Cafetaria voor een verfrissing."
+    },
+    {
+      "type": "technical",
+      "title": "Materiaal & Banden",
+      "content": "Een all-round gravelband van 35-40mm is perfect. De paden in het Polygoonbos liggen er vaak snel bij, maar in de Palingbeek en Huikerbossen kan het na regenval vettig zijn."
+    }
+  ]
+}
