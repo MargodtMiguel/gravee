@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { Coffee, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "../ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Link from "next/link";
+import { captureRouteDownloadEmail } from "@/lib/actions/subscription";
 
 interface RouteCTAProps {
   slug: string;
@@ -14,11 +16,29 @@ export function RouteCTA({ slug }: RouteCTAProps) {
   const gpxDownloadUrl = `/routes/${slug}/track.gpx`;
   const buyMeCoffeeUrl = "https://buymeacoffee.com/gravee";
 
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const downloadGpx = () => {
     const link = document.createElement("a");
     link.href = gpxDownloadUrl;
     link.download = "track.gpx";
     link.click();
+  };
+
+  const handleDownloadSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setLoading(true);
+    const res = await captureRouteDownloadEmail(email, slug);
+    setLoading(false);
+
+    if (res?.success) {
+      downloadGpx();
+    } else {
+      alert(res?.error || "Er is een fout opgetreden. Probeer het opnieuw.");
+    }
   };
 
   return (
@@ -29,19 +49,30 @@ export function RouteCTA({ slug }: RouteCTAProps) {
             Ready to Ride?
           </h3>
           <p className="pb-4">
-            Download hier de actuele GPX voor je fietscomputer. Ik update de
-            routes regelmatig voor de beste ervaring.
+            Vul je e-mailadres in om de actuele GPX direct te downloaden.
           </p>
 
-          <Button
-            className="rounded-full w-fit"
-            onClick={downloadGpx}
-            data-umami-event="Download GPX"
-            data-umami-event-route={slug}
-          >
-            <Download className="size-4" />
-            Download GPX-bestand (Gratis)
-          </Button>
+          <form onSubmit={handleDownloadSubmit} className="flex flex-col sm:flex-row w-full max-w-md gap-3">
+            <input 
+              type="email" 
+              placeholder="Jouw e-mailadres" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={loading}
+              className="flex h-10 flex-1 rounded-full border border-primary/20 bg-background px-4 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50"
+            />
+            <Button
+              type="submit"
+              className="rounded-full w-full sm:w-fit"
+              disabled={loading}
+              data-umami-event="Download GPX"
+              data-umami-event-route={slug}
+            >
+              <Download className="size-4" />
+              {loading ? "Even geduld..." : "Download GPX (Gratis)"}
+            </Button>
+          </form>
         </div>
 
         <div className="h-px md:h-32 w-full md:w-px bg-primary/20"></div>
