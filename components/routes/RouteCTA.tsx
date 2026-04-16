@@ -49,7 +49,7 @@ export function RouteCTA({ slug }: RouteCTAProps) {
             Ready to Ride?
           </h3>
           <p className="pb-4">
-            Vul je e-mailadres in om de actuele GPX direct te downloaden.
+            Vul je e-mailadres in om de actuele GPX direct te downloaden. Ik update de routes regelmatig.
           </p>
 
           <form onSubmit={handleDownloadSubmit} className="flex flex-col sm:flex-row w-full max-w-md gap-3">
