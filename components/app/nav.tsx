@@ -3,8 +3,8 @@ import { Logo } from "./logo";
 
 export const Nav = () => {
   return (
-    <nav className="bg-background px-4 md:px-8 py-4 fixed top-0 w-full z-10">
-      <div className="flex items-center gap-6 max-w-7xl mx-auto">
+    <nav className="bg-background py-4 fixed top-0 w-full z-10">
+      <div className="flex items-center gap-6 max-w-7xl mx-auto px-4 md:px-8">
         <Link href="/">
           <div className="flex gap-2 items-center">
             <Logo className="size-6 md:size-8" />
