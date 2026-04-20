@@ -50,8 +50,11 @@ export const Footer = () => {
           )}
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 text-sm border-t border-primary/20">
-        &copy; {new Date().getFullYear()} Gravee.cc. Alle rechten voorbehouden.
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 text-sm border-t border-primary/20 flex flex-col md:flex-row justify-between items-center gap-4 text-muted-foreground">
+        <span>&copy; {new Date().getFullYear()} Gravee.cc. Alle rechten voorbehouden.</span>
+        <a href="mailto:miguel@gravee.cc" className="hover:text-primary transition-colors">
+          miguel@gravee.cc
+        </a>
       </div>
     </footer>
   );
